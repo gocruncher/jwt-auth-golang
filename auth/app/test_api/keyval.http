@@ -1,0 +1,38 @@
+GET http://localhost:10000/api/test
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+### Create root category
+
+POST http://localhost:10000/api/set-key?key=k&val=v
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "key": "a",
+  "val": "b"
+}
+
+### Create sub category
+
+GET http://localhost:10000/api/get-key?key=k
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+
+
+###
+
+PATCH http://localhost:8080/api/categories/58200afc-d484-4c2a-a240-1e3e51d1b0c4
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "Sub Category 1"
+}
+
+###
+
+DELETE http://localhost:8080/api/categories/58200afc-d484-4c2a-a240-1e3e51d1b0c4
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}

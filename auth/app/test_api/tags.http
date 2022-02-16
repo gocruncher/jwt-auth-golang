@@ -1,0 +1,38 @@
+### Get tags
+
+GET http://localhost:8080/api/tags?id=1,2,3,4
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+### Get tag
+
+GET http://localhost:8080/api/tags/1
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+### Create tag
+
+POST http://localhost:8080/api/tags
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "tag 3",
+  "color": "black"
+}
+
+### Update tag
+
+PATCH http://localhost:8080/api/tags/1
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "changed 1 tag 1"
+}
+
+### Delete tag
+
+DELETE http://localhost:8080/api/tags/3
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
