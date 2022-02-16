@@ -1,12 +1,16 @@
 openapi: 3.0.0
+servers:
+  - description: Authorization API
+    url: http://62.149.5.216/auth/api
 info:
-  title: Occupant API
+  title: Authorization API
   version: 0.0.1
+security:
+  - BearerAuth: []
 
 tags:
-  - name: Occupant
-    description: "Occupant - main entity"
   - name: Authorization
+    description: "Authorization - main entity"
 components:
   headers:
     RequestSuccess:
@@ -106,7 +110,7 @@ components:
         - required:
             - val
 paths:
-  /api/auth:
+  /auth/api/auth:
     post:
       summary: "auth by username and password "
       tags:
@@ -162,7 +166,7 @@ paths:
           $ref: "#/components/responses/ImaTeapot"
         '500':
           $ref: "#/components/responses/InternalError"
-  /api/signup:
+  /auth/api/signup:
     post:
       summary: "create new user"
       tags:
@@ -190,7 +194,7 @@ paths:
           $ref: "#/components/responses/ImaTeapot"
         '500':
           $ref: "#/components/responses/InternalError"
-  /api/mapdb/{key}:
+  /auth/api/mapdb/{key}:
     get:
       summary: "get key"
       parameters:
