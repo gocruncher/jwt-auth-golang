@@ -12,6 +12,13 @@ tags:
   - name: Authorization
     description: "Authorization - main entity"
 components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
   headers:
     RequestSuccess:
       schema:
@@ -110,8 +117,10 @@ components:
         - required:
             - val
 paths:
-  /auth/api/auth:
+  /auth:
     post:
+      security:
+        - BasicAuth: [ ]
       summary: "auth by username and password "
       tags:
         - Authorization
@@ -166,7 +175,7 @@ paths:
           $ref: "#/components/responses/ImaTeapot"
         '500':
           $ref: "#/components/responses/InternalError"
-  /auth/api/signup:
+  /signup:
     post:
       summary: "create new user"
       tags:
@@ -194,7 +203,7 @@ paths:
           $ref: "#/components/responses/ImaTeapot"
         '500':
           $ref: "#/components/responses/InternalError"
-  /auth/api/mapdb/{key}:
+  /mapdb/{key}:
     get:
       summary: "get key"
       parameters:
