@@ -203,54 +203,22 @@ paths:
           $ref: "#/components/responses/ImaTeapot"
         '500':
           $ref: "#/components/responses/InternalError"
-  /mapdb/{key}:
+  /api/test:
     get:
-      summary: "get key"
-      parameters:
-        - in: path
-          name: key
-          required: true
-          schema:
-            type: string
+      summary: "test"
       tags:
-        - Mapdb
-      description: "Get key"
+        - test
+      description: "test"
       responses:
         '200':
           description: "OK"
           content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/MapKeyVal"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '418':
-          $ref: "#/components/responses/ImaTeapot"
-        '500':
-          $ref: "#/components/responses/InternalError"
-    post:
-      summary: "create mapdb key"
-      tags:
-        - Mapdb
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/CreateMapKeyVal"
-      description: "create mapdb key"
-      responses:
-        '201':
-          headers:
-            Location:
+            text/plain:
               schema:
                 type: string
-              description: uri of new object
-          description: 'Created'
+                example: ok
         '400':
           $ref: "#/components/responses/BadRequest"
-        '409':
-          $ref: "#/components/responses/Conflict"
         '418':
           $ref: "#/components/responses/ImaTeapot"
         '500':
