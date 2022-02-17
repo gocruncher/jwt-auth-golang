@@ -203,7 +203,7 @@ paths:
           $ref: "#/components/responses/ImaTeapot"
         '500':
           $ref: "#/components/responses/InternalError"
-  /api/test:
+  /test:
     get:
       summary: "test"
       tags:
